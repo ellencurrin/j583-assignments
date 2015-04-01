@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+    
+{% block content %}
+    
+<style>
+    img {max-height: 300px; max-width: 90vw;}
+    .card {height: 400px;}
+    .banner-photo {
+        height: 0vh;
+        z-index: 100;
+    }
+    .text {text-align: center;}
+</style>
+
+<div class="text">
+    <img src="{{player.image}}">
+    <h2>{{player.first}} {{player.last}}</h2>
+    <h4>{{player.year}}  |  {{player.city}}, {{player.state}}</h4>
+    <h5>Spirit Animal: {{player.animal}}</h5>
+    <p>{{player.bio}}</p>
+</div>
+
+{% endblock %}
+    

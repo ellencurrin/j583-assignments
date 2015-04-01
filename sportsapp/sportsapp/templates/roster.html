@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+    
+{% block content %}
+    
+
+    <script>
+        $( document ).ready(function() {
+            console.log("ready")
+            $('#datatable').dataTable();
+        });
+    </script>
+    <style>
+        .banner-photo {
+                height: 65vh;
+                background: url("{{team.image}}") 0,0/100vw;
+                z-index: 100;
+            } 
+    </style>
+
+    <h2 style="text-align: center"> Roster: {{team.name}}</h2>
+    
+    <table id="datatable" class="display compact" cellspacing="0" width="100%">
+            <a name="table"></a>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Year</th>
+                    <th>Hometown</th>
+                    <th>Spirit Animal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in players %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'player' player.id %}">
+                                {{ player.last }}, {{ player.first }}
+                            </a>
+                        </td>
+                        <td>
+                            {{ player.year }}
+                        </td>
+                        <td>
+                            {{ player.city }}, {{player.state}}
+                        </td>
+                        <td>
+                            {{ player.animal }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+    
+        </table>
+    
+    <script>
+        var player_geodata = {{player_geodata}};
+        console.log(player_geodata)
+    </script>
+
+{% endblock %}
+    

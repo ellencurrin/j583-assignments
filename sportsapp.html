@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Sports App</title>
+    
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- BOOTSTRAP Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> 
+    <!-- BOOTSTRAP Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- BOOTSTRAP Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!-- FONT AWESOME-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        
+        
+    <style>
+        .card {
+            outline:.1em dashed black;
+            text-align: center;
+            vertical-align: middle;
+            padding: 5em;
+        }
+        .card i {
+            font-size: 5em;
+            color: #999;
+            padding: 0em;
+        }
+        .banner-photo {
+            height: 65vh;
+            background: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR4qmx3HIHANvF8lN4rgcWjhvxDXP2bU4L6PqzG1xfP_Gnex5LBWA") 0,0/100%;
+            z-index: 10;
+        }
+        
+        footer{
+            padding: 1em 3em 1em 3em;
+        }
+        
+    </style>
+    
+</head>
+
+<body>
+    
+    <div class="col-md-12 banner-photo"></div>
+    
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Home</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sport <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Soccer</a></li>
+                <li><a href="#">Rock Climbing</a></li>
+                <li><a href="#">Triathalon</a></li>
+                <li><a href="#">Puzzle Team</a></li>
+                <li><a href="#">Competative Shopping</a></li>
+                <li><a href="#">Birding</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Team <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Please Select a Sport</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Player <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Please Select a Team</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    
+    <div class="row">
+        <div class="col-md-4 card">
+            <i class="fa fa-futbol-o"></i>
+            <h3>Sport Name</h3>
+            <p>Description</p>
+        </div>
+        <div class="col-md-4 card">
+            <i class="fa fa-heart"></i>
+            <h3>Sport Name</h3>
+            <p>Description</p>
+        </div>
+        <div class="col-md-4 card">
+            <i class="fa fa-bicycle"></i>
+            <h3>Sport Name</h3>
+            <p>Description</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 card">
+            <i class="fa fa-puzzle-piece"></i>
+            <h3>Sport Name</h3>
+            <p>Description</p>
+        </div>
+        <div class="col-md-4 card">
+            <i class="fa fa-trophy"></i>
+            <h3>Sport Name</h3>
+            <p>Description</p>
+        </div>
+        <div class="col-md-4 card">
+            <i class="fa fa-shopping-cart"></i>
+            <h3>Sport Name</h3>
+            <p>Description</p>
+        </div>
+    </div>
+
+    
+    <!-- FOOTER -->
+    <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p class="pull-right" style="padding-right: 2em;"><a href="#">Back to home</a></p>
+        <p>&copy; 2014 Ellen Currin, UNC &middot; <a href="#">Terms</a></p>
+    </footer>
+    
+</body>
+</html>

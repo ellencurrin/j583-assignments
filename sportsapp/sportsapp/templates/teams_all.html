@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+    
+{% block content %}
+
+<style>
+    .card {height: 400px;}
+    .outline {padding: 3em; height: 400px;}
+        .banner-photo {
+                height: 0vh;
+                z-index: 100;
+            } 
+</style>
+
+<h2> All Teams </h2>
+    
+    {% for team in teams %}
+        <a href="{% url 'roster' team.id %}">
+        <div class="col-md-4 card">
+            <div class="outline">
+                <img style="width: 100%;" src="{{ team.image }}"></i>
+                <h3>{{ team.name }}</h3>
+                <p>{{ team.description }}</p>
+            </div>
+        </div>
+        </a>
+    {% endfor %}
+
+{% endblock %}
+    

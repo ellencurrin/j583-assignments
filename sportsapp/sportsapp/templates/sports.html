@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+    
+{% block content %}
+        
+    {% for sport in sports %}
+        <a href="{% url 'teams' sport.id %}">
+        <div class="col-md-4 card">
+            <div class="outline">
+                <i class="fa {{ sport.icon }}"></i>
+                <h3>{{ sport.name }}</h3>
+                <p>{{ sport.description }}</p>
+            </div>
+        </div>
+        </a>
+    {% endfor %}
+        
+
+{% endblock %}
+    
