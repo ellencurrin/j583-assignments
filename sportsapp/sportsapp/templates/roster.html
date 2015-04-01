@@ -15,7 +15,9 @@
                 height: 65vh;
                 background: url("{{team.image}}") 0,0/100vw;
                 z-index: 100;
-            } 
+            }
+        #map-canvas {width: 90vw; height: 70vh; margin-top: 10vh;}
+        #addresses {display: none;}
     </style>
 
     <h2 style="text-align: center"> Roster: {{team.name}}</h2>
@@ -52,6 +54,75 @@
             </tbody>
     
     </table>
+    <div id="addresses">{{player_geodata}}</div>
     
+    <div id="map-canvas">map</div>
+    
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script>
+    var map
+    var geocoder
+    var infowindow
+    function initialize() {
+      geocoder = new google.maps.Geocoder();
+      var mapOptions = {
+        zoom: 6,
+        center: new google.maps.LatLng(35.9333, -89.0333)
+      };
+      map = new google.maps.Map(document.getElementById('map-canvas'),
+          mapOptions);
+      var markers = codeAddress();
+      foo = markers;
+    }
+    
+    var addresses = JSON.parse(document.getElementById('addresses').innerHTML);
+    console.log(addresses)
+    
+    function codeAddress() {
+        var markers = [];
+        for (i = 0; i < 8; i++) {
+            var address = addresses[i].address;
+            //console.log(address)
+            geocoder.geocode( { 'address': address}, function(results, status) {
+              console.log(results)
+              if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location,
+                    title: addresses[i].name,
+                    id: i
+                })
+                console.log(marker)
+                    
+                setInfo(marker, i)
+
+              } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+              }
+            });
+        }
+        return markers;
+    }
+    
+    function setInfo(marker, num) {
+        var i
+        google.maps.event.addListener(marker, 'mouseover', function() {
+                i = this.id
+                console.log(i)
+                html = '<div>' + addresses[i].name + '</div>'
+                infowindow = new google.maps.InfoWindow({
+                        content: html
+                });
+                infowindow.open(map, this);
+        });
+        google.maps.event.addListener(marker, 'mouseout', function() {
+                infowindow.close(map, this);
+        });
+    }
+    
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
 {% endblock %}
     
